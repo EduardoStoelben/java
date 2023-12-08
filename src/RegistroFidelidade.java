@@ -6,6 +6,10 @@ public class RegistroFidelidade implements Serializable {
     private static final long serialVersionUID = 1L;
     private List<Aluno> alunos;
 
+    public List<Aluno> listarAlunos() {
+        return alunos;
+    }
+
     public RegistroFidelidade() {
         this.alunos = new ArrayList<>();
     }
@@ -35,9 +39,5 @@ public class RegistroFidelidade implements Serializable {
             }
         }
         return resultados;
-    }
-
-    public List<Aluno> listarAlunos() {
-        return alunos;
     }
 }

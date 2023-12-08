@@ -43,6 +43,22 @@ public class GerenciadorFidelidade {
         return registro.listarAlunos();
     }
 
+    public void adicionarPontosFidelidade(String matricula, int pontos) {
+        Aluno aluno = registro.buscarPorMatricula(matricula);
+        if (aluno != null) {
+            aluno.adicionarPontosFidelidade(pontos);
+            salvarDados();
+        }
+    }
+
+    public void retirarPontosFidelidade(String matricula, int pontos) {
+        Aluno aluno = registro.buscarPorMatricula(matricula);
+        if (aluno != null) {
+            aluno.retirarPontosFidelidade(pontos);
+            salvarDados();
+        }
+    }
+
     private void salvarDados() {
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(arquivoDados))) {
             out.writeObject(registro);
